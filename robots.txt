@@ -1,0 +1,5 @@
+# Syson Actin — portfolio
+User-agent: *
+Allow: /
+
+Sitemap: https://thearkai.github.io/syson-portfolio/sitemap.xml

@@ -1,0 +1,108 @@
+/* ==========================================================================
+   responsive.css — mobile-first breakpoints
+   Base styles are written for small phones; each block layers on top.
+   560px · 760px · 1000px · 1240px
+   ========================================================================== */
+
+/* ---- 560px — large phones ---------------------------------------------- */
+@media (min-width: 560px) {
+  :root { --gutter: 1.75rem; }
+
+  .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fact-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ---- 760px — tablets ---------------------------------------------------- */
+@media (min-width: 760px) {
+  :root { --header-h: 72px; --gutter: 2rem; }
+
+  .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  .fact-strip { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+  /* About hero: portrait + quick facts side by side, bio above */
+  .about-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+
+  .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .footer-main { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .footer-brand { grid-column: span 2; }
+}
+
+/* ---- 1000px — laptops: switch to the desktop layout --------------------- */
+@media (min-width: 1000px) {
+  :root { --gutter: 2.5rem; }
+
+  /* Navigation becomes a horizontal bar; drawer is hidden */
+  .nav {
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .nav-toggle { display: none; }
+
+  /* Hero: copy left, terminal right */
+  .hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); }
+
+  /* About page: portrait column, then bio + facts */
+  .about-hero { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
+
+  /* Generic two-column split used by the home page and inner sections */
+  .split { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); }
+  /* The featured-project row inside a card is an even split */
+  .card .split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+
+  /* Contact: info left, form right */
+  .contact-layout { grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); }
+
+  /* Blog: posts + sticky sidebar */
+  .blog-layout { grid-template-columns: minmax(0, 1fr) 300px; }
+  .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .sidebar { position: sticky; top: calc(var(--header-h) + 1.5rem); }
+
+  .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .gallery-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+  .section { padding-block: clamp(3.5rem, 7vw, 5.5rem); }
+
+  .footer-brand { grid-column: span 1; }
+}
+
+/* ---- 1240px — wide desktops -------------------------------------------- */
+@media (min-width: 1240px) {
+  :root { --gutter: 2rem; }
+  .hero { padding-top: calc(var(--header-h) + 5rem); }
+}
+
+/* ---- Small-screen refinements (max-width) ------------------------------- */
+@media (max-width: 999px) {
+  /* On touch layouts the terminal is a supporting visual, not the hero */
+  .terminal-body { min-height: 220px; }
+  .lightbox-nav { width: 38px; height: 38px; }
+}
+
+@media (max-width: 559px) {
+  /* a single item should read as a proper portrait, not a postage stamp */
+  .gallery-grid.is-sparse { grid-template-columns: minmax(0, 1fr); max-width: 380px; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .fact-strip-item { padding-bottom: .4rem; }
+  .footer-bottom { justify-content: center; text-align: center; }
+  .page-title { letter-spacing: -0.03em; }
+  .lightbox-prev { left: .25rem; }
+  .lightbox-next { right: .25rem; }
+}
+
+/* Landscape phones: keep the drawer scrollable and compact */
+@media (max-height: 480px) and (max-width: 999px) {
+  .mobile-menu { padding-block: 1rem 1.5rem; }
+  .mobile-nav-list a { padding-block: .6rem; }
+}

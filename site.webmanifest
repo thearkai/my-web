@@ -1,0 +1,14 @@
+{
+  "name": "Syson Actin — Creative Web Developer",
+  "short_name": "Syson Actin",
+  "description": "Portfolio of Karuhanga Syson, professionally known as Syson Actin.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080B12",
+  "theme_color": "#080B12",
+  "icons": [
+    { "src": "assets/images/brand/crest-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/images/brand/crest-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/images/brand/crest-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

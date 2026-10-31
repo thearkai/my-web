@@ -1,0 +1,199 @@
+/* ==========================================================================
+   theme.css — light theme
+   Dark is the default; this file only re-maps the tokens when
+   <html data-theme="light"> is set by js/theme.js.
+   ========================================================================== */
+
+:root[data-theme="light"] {
+  /* Surfaces */
+  --bg:            #F5F8FD;
+  --bg-2:          #E9EFF9;
+  --card:          #FFFFFF;
+  --card-2:        #F8FAFE;
+  --elevated:      #FFFFFF;
+
+  /* Brand stays, slightly deepened for contrast on white */
+  --blue:          #1D4ED8;
+  --blue-soft:     #2563EB;
+  --violet:        #7C3AED;
+  --violet-soft:   #7C3AED;
+  --grad:          linear-gradient(135deg, #1D4ED8 0%, #7C3AED 100%);
+  --grad-soft:     linear-gradient(135deg, rgba(29,78,216,.10), rgba(124,58,237,.10));
+
+  /* Text */
+  --text:          #0B1220;
+  --text-dim:      #26374D;
+  --muted:         #55647A;
+  --faint:         #7B8899;
+
+  /* Lines & states */
+  --border:        #DCE5F2;
+  --border-soft:   rgba(220, 229, 242, .9);
+  --border-glow:   rgba(29, 78, 216, .38);
+  --ring:          rgba(29, 78, 216, .35);
+  --success:       #059669;
+  --danger:        #DC2626;
+  --warning:       #B45309;
+
+  /* Effects — much softer shadows on light */
+  --shadow-sm:     0 1px 3px rgba(15, 23, 42, .06);
+  --shadow:        0 10px 30px rgba(15, 23, 42, .08);
+  --shadow-lg:     0 20px 50px rgba(15, 23, 42, .12);
+  --glow-blue:     0 0 0 1px rgba(29, 78, 216, .22), 0 16px 40px rgba(29, 78, 216, .12);
+  --glow-violet:   0 0 0 1px rgba(124, 58, 237, .22), 0 16px 40px rgba(124, 58, 237, .12);
+}
+
+/* --- Component adjustments that tokens alone can't cover ----------------- */
+
+:root[data-theme="light"] body { background: var(--bg); }
+
+/* Background blooms: much lighter so text stays crisp */
+:root[data-theme="light"] .bg-layers::before { opacity: .5; }
+:root[data-theme="light"] .bg-layers::after  { opacity: .35; }
+:root[data-theme="light"] #stars { opacity: .35; }
+
+/* Header */
+:root[data-theme="light"] .site-header {
+  background: rgba(245, 248, 253, .72);
+}
+:root[data-theme="light"] .site-header.is-stuck {
+  background: rgba(245, 248, 253, .94);
+  box-shadow: 0 8px 26px rgba(15, 23, 42, .07);
+}
+
+/* Navigation */
+:root[data-theme="light"] .nav-link { color: var(--muted); }
+:root[data-theme="light"] .nav-link:hover { color: var(--text); background: rgba(15, 23, 42, .04); }
+:root[data-theme="light"] .nav-link.is-active { color: var(--blue); }
+
+:root[data-theme="light"] .mobile-menu { background: rgba(245, 248, 253, .98); }
+
+/* Buttons */
+:root[data-theme="light"] .btn-outline {
+  --btn-bg: #FFFFFF;
+  --btn-fg: var(--text);
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+:root[data-theme="light"] .btn-outline:hover {
+  --btn-bg: rgba(29, 78, 216, .06);
+  --btn-fg: var(--blue);
+}
+:root[data-theme="light"] .btn-primary { color: #fff; }
+
+/* Cards & surfaces */
+:root[data-theme="light"] .card {
+  background: #FFFFFF;
+  border-color: var(--border);
+}
+
+:root[data-theme="light"] .badge {
+  background: #FFFFFF;
+  color: var(--muted);
+}
+:root[data-theme="light"] .badge--accent {
+  background: rgba(29, 78, 216, .08);
+  color: var(--blue);
+  border-color: rgba(29, 78, 216, .22);
+}
+
+:root[data-theme="light"] .pill { background: #FFFFFF; }
+:root[data-theme="light"] .pill:hover { color: var(--text); }
+
+:root[data-theme="light"] .icon-btn {
+  background: #FFFFFF;
+  border-color: var(--border);
+  color: var(--text-dim);
+}
+:root[data-theme="light"] .icon-btn:hover { color: var(--blue); }
+
+/* Terminal keeps a dark skin in light mode — it reads as a code editor */
+:root[data-theme="light"] .terminal {
+  border-color: #1E293B;
+  box-shadow: 0 18px 50px rgba(15, 23, 42, .20);
+}
+:root[data-theme="light"] .terminal-body { color: #E2E8F0; }
+
+/* Portrait placeholder */
+:root[data-theme="light"] .portrait-inner {
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(129, 140, 248, .28), transparent 60%),
+    linear-gradient(180deg, #E8EEFA 0%, #F7FAFF 100%);
+}
+
+/* Form fields */
+:root[data-theme="light"] .field input,
+:root[data-theme="light"] .field textarea,
+:root[data-theme="light"] .search input {
+  background: #FFFFFF;
+  color: var(--text);
+}
+:root[data-theme="light"] .field input:hover,
+:root[data-theme="light"] .field textarea:hover { border-color: #B9C6DA; }
+
+/* Gallery / cert placeholders keep dark art but sit on white cards */
+:root[data-theme="light"] .cert-card .cert-media { border-color: var(--border); }
+
+/* Footer */
+:root[data-theme="light"] .site-footer { background: #FFFFFF; }
+:root[data-theme="light"] .to-top { background: #FFFFFF; color: var(--text); }
+:root[data-theme="light"] .toast { background: #FFFFFF; color: var(--text-dim); }
+
+/* Lightbox stays dark for image viewing comfort */
+:root[data-theme="light"] .lightbox { background: rgba(15, 23, 42, .82); }
+
+/* Fix low-contrast accents inside dark-only art areas */
+:root[data-theme="light"] .project-tags li {
+  background: rgba(15, 23, 42, .04);
+  color: var(--muted);
+}
+
+/* --- Components that are dark by design need re-mapping in light mode ----- */
+
+:root[data-theme="light"] .quote {
+  background: #FFFFFF;
+  border-color: var(--border);
+  color: var(--text-dim);
+}
+:root[data-theme="light"] .quote::before { color: var(--violet); }
+
+/* Warning notice: the amber text is unreadable on white */
+:root[data-theme="light"] .notice {
+  border-color: rgba(180, 83, 9, .28);
+  background: rgba(251, 191, 36, .12);
+  color: #92400E;
+}
+:root[data-theme="light"] .notice strong { color: #78350F; }
+
+/* Placeholder ribbons */
+:root[data-theme="light"] .ribbon {
+  border-color: rgba(180, 83, 9, .35);
+  background: rgba(251, 191, 36, .18);
+  color: #92400E;
+}
+
+/* Social chips sit on a white footer, so they need a light surface */
+:root[data-theme="light"] .socials a {
+  background: #FFFFFF;
+  border-color: var(--border);
+  color: var(--text-dim);
+}
+:root[data-theme="light"] .socials a:hover {
+  color: var(--blue);
+  border-color: var(--border-glow);
+  background: rgba(29, 78, 216, .06);
+}
+:root[data-theme="light"] .socials a.is-unconfigured { color: var(--muted); }
+
+/* Code chips inside notices */
+:root[data-theme="light"] code {
+  background: rgba(15, 23, 42, .06);
+  color: var(--text);
+}
+
+/* Skill slots */
+:root[data-theme="light"] .slot { color: var(--faint); background: #FFFFFF; }
+:root[data-theme="light"] .slot:hover { border-color: var(--border-glow); }
+
+/* Terminal code block keeps its dark skin, so its muted text stays readable */
+:root[data-theme="light"] .terminal-file { color: #7C8CA6; }
