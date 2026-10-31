@@ -1,6 +1,6 @@
 # syson actin. — portfolio
 
-A premium, futuristic dark portfolio for **Syson Actin** (Karuhanga Syson), built with plain
+A premium, futuristic dark portfolio for Karuhanga Syson, built with plain
 HTML, CSS and JavaScript. Eight pages, no frameworks, no build step required to run it.
 
 ---
